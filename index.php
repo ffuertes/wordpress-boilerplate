@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
+ * @package boilerplate
  */
 
 get_header(); ?>
@@ -52,5 +52,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+getboilerplateidebar();
 get_footer();

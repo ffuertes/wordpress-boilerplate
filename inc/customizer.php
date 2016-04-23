@@ -1,8 +1,8 @@
 <?php
 /**
- * _s Theme Customizer.
+ * boilerplate Theme Customizer.
  *
- * @package _s
+ * @package boilerplate
  */
 
 /**
@@ -10,17 +10,17 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function _s_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+function boilerplate_customize_register( $wp_customize ) {
+	$wp_customize->getboilerplateetting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->getboilerplateetting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->getboilerplateetting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', '_s_customize_register' );
+add_action( 'customize_register', 'boilerplate_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function _s_customize_preview_js() {
-	wp_enqueue_script( '_s_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function boilerplate_customize_preview_js() {
+	wp_enqueueboilerplatecript( 'boilerplate_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', '_s_customize_preview_js' );
+add_action( 'customize_preview_init', 'boilerplate_customize_preview_js' );

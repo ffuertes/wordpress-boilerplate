@@ -11,8 +11,8 @@ var gulp         = require('gulp'),
 	browsersync  = require('browser-sync').create();
 
 var config = {
-	name: 'incideetheme',
-	proxy: 'incidee.nex',
+	name: 'boilerplatetheme',
+	proxy: 'boilerplate.nex',
 	paths: {
 		style: './sass/*.scss',
 		scss: './sass/**/*.scss',
