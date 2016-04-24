@@ -1,4 +1,4 @@
 Wordpress theme boilerplate
 ===
 
-This is my personal wordpress theme boilerplate
+Base para desarrollo de temas de wordpress en español. Basado en _s.

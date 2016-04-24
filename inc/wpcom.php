@@ -12,7 +12,7 @@
  *
  * @global array $themecolors
  */
-function boilerplate_wpcomboilerplateetup() {
+function boilerplate_wpcom_setup() {
 	global $themecolors;
 
 	// Set theme colors for third party services.
@@ -26,4 +26,4 @@ function boilerplate_wpcomboilerplateetup() {
 		);
 	}
 }
-add_action( 'afterboilerplateetup_theme', 'boilerplate_wpcomboilerplateetup' );
+add_action( 'after_setup_theme', 'boilerplate_wpcom_setup' );

@@ -52,5 +52,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-getboilerplateidebar();
+get_sidebar();
 get_footer();

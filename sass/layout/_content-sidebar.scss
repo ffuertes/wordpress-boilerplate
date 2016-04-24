@@ -1,20 +1,20 @@
 .content-area {
 	float: left;
-	margin: 0 (-$size_boilerplateite-sidebar) 0 0;
-	width: $size_boilerplateite-main;
+	margin: 0 (-$size_site-sidebar) 0 0;
+	width: $size_site-main;
 }
 
 .site-main {
-	margin: 0 $size_boilerplateite-sidebar 0 0;
+	margin: 0 $size_site-sidebar 0 0;
 }
 
 .site-content .widget-area {
 	float: right;
 	overflow: hidden;
-	width: $size_boilerplateite-sidebar;
+	width: $size_site-sidebar;
 }
 
 .site-footer {
 	clear: both;
-	width: $size_boilerplateite-main;
+	width: $size_site-main;
 }

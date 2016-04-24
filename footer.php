@@ -15,9 +15,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'boilerplate' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'boilerplate' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'boilerplate' ), 'boilerplate', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+			<p><?php bloginfo('name'); ?> <?php echo date('Y'); ?> © Todos los derechos reservados.</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
