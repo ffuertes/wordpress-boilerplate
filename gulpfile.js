@@ -7,18 +7,28 @@ var gulp         = require('gulp'),
 	notify       = require('gulp-notify'),
 	del          = require('del'),
 	zip          = require('gulp-zip'),
+    replace      = require('gulp-replace'),
 	runSequence  = require('gulp-run-sequence'),
 	browsersync  = require('browser-sync').create();
 
 var config = {
-	name: 'boilerplatetheme',
-	proxy: 'boilerplate.nex',
+	name: 'Boilerplate Theme',
+    textDomain: 'boilerplate',
 	paths: {
 		style: './sass/*.scss',
 		scss: './sass/**/*.scss',
 		php: './**/*.php'
 	},
 };
+
+gulp.task('setup', function(){
+    gulp.src(['./sass/style.scss'])
+        .pipe(replace('Boilerplate Theme', config.textDomain));
+
+    gulp.src(['./**/**', '!./node_modules/**', '!./gulpfile.js'])
+        .pipe(replace('boilerplate', config.textDomain))
+        .pipe(gulp.dest('./'));
+});
 
 gulp.task('styles', function(){
 	return gulp.src(config.paths.style)
@@ -71,19 +81,19 @@ var buildInclude    = [
 //Delete the build folder in case it exist
 gulp.task('clean', function(){
 	return del([
-		'./' + config.name
+		'./' + config.textDomain
 	]);
 });
 
 gulp.task('buildZip', function() {
-    return gulp.src(config.name + '/**/')
-        .pipe(zip(config.name + '.zip'))
+    return gulp.src(config.textDomain + '/**/')
+        .pipe(zip(config.textDomain + '.zip'))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('buildFiles', ['styles', 'clean'], function() {
     return  gulp.src(buildInclude)
-        .pipe(gulp.dest('./' + config.name))
+        .pipe(gulp.dest('./' + config.textDomain))
         .pipe(notify({ message: 'Build task complete', onLast: true }));
 });
 
