@@ -27,3 +27,48 @@ function boilerplate_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'boilerplate_body_classes' );
+
+//Funcion para controlar la longitud del excerpt
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+//cambiar el logo de la pagina de login...
+function my_login_head() {
+	echo "
+	<style>
+	body.login #login h1 a {
+		background: url('". get_template_directory_uri() ."/assets/img/logo-login.png') no-repeat scroll center top transparent;
+		width: 275px;
+		height: 133px;
+		background-size: cover;
+	}
+	</style>
+	";
+}
+add_action("login_head", "my_login_head");
+
+//Cambiar el URL del logo de login
+function custom_loginlogo_url($url) {
+    return ( home_url() );
+}
+add_filter( 'login_headerurl', 'custom_loginlogo_url' );
+
+//Cambiar el Título al logo de login
+function logo_title(){
+	return ( get_bloginfo('name') ); // changing the title from "Powered by WordPress" to whatever you wish
+}
+add_filter('login_headertitle', 'logo_title');
+
+//Por cuestiones de seguridad remover la version de wordpress de sitios visibles
+function remove_version() {
+	return '';
+}
+add_filter('the_generator', 'remove_version');
+
+function disable_comment_url($fields) { 
+    unset($fields['url']);
+    return $fields;
+}
+add_filter('comment_form_default_fields','disable_comment_url');
