@@ -34,6 +34,12 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+//Para modificar la forma en la que concluye el excerpt
+function new_excerpt_more( $more ) {
+	return "...";
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 //cambiar el logo de la pagina de login...
 function my_login_head() {
 	echo "

@@ -116,6 +116,10 @@ add_action( 'widgets_init', 'boilerplate_widgets_init' );
 function boilerplate_scripts() {
 	wp_enqueue_style( 'boilerplate-style', get_stylesheet_uri() );
 
+	//Descomentar para anadir jquery en el footer
+	//wp_deregister_script('jquery');
+	//wp_enqueue_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, '', true );
+
 	wp_enqueue_script( 'boilerplate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'boilerplate-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
