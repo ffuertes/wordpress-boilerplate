@@ -86,14 +86,14 @@ gulp.task('clean', function(){
 });
 
 gulp.task('buildZip', function() {
-    return gulp.src(config.textDomain + '/**/')
+    return gulp.src('./build/**/')
         .pipe(zip(config.textDomain + '.zip'))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('buildFiles', ['styles', 'clean'], function() {
     return  gulp.src(buildInclude)
-        .pipe(gulp.dest('./' + config.textDomain))
+        .pipe(gulp.dest('./build/' + config.textDomain))
         .pipe(notify({ message: 'Build task complete', onLast: true }));
 });
 
