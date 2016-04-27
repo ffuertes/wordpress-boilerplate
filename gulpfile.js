@@ -14,6 +14,7 @@ var gulp         = require('gulp'),
 var config = {
 	name: 'Boilerplate Theme',
     textDomain: 'boilerplate',
+    proxy: 'boilerplate.dev',
 	paths: {
 		style: './sass/*.scss',
 		scss: './sass/**/*.scss',
@@ -81,7 +82,7 @@ var buildInclude    = [
 //Delete the build folder in case it exist
 gulp.task('clean', function(){
 	return del([
-		'./' + config.textDomain
+		'./build/' 
 	]);
 });
 
