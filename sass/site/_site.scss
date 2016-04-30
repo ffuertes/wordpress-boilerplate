@@ -1,16 +1,31 @@
-// @import "../layout/content-sidebar";
-// @import "../layout/sidebar-content";
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-@import "primary/posts-and-pages";
+.sticky {
+	display: block;
+}
 
-/*--------------------------------------------------------------
-## Asides
---------------------------------------------------------------*/
-@import "primary/asides";
+.hentry {
+	margin: 0 0 1.5em;
+}
 
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-@import "primary/comments";
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}

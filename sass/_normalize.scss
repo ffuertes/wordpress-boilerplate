@@ -2,10 +2,37 @@ html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
 }
 
 body {
 	margin: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__copy;
+	font-family: $font__main;
+	@include font-size(1);
+	line-height: $font__line-height-body;
+}
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
 }
 
 article,
@@ -54,6 +81,11 @@ abbr[title] {
 	border-bottom: 1px dotted;
 }
 
+abbr, acronym {
+	border-bottom: 1px dotted $color__mid;
+	cursor: help;
+}
+
 b,
 strong {
 	font-weight: bold;
@@ -68,9 +100,38 @@ h1 {
 	margin: 0.67em 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-family: $font__heading;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
 mark {
 	background: #ff0;
 	color: #000;
+}
+
+mark, ins {
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
 }
 
 small {
@@ -95,6 +156,8 @@ sub {
 
 img {
 	border: 0;
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
 }
 
 svg:not(:root) {
@@ -108,10 +171,21 @@ figure {
 hr {
 	box-sizing: content-box;
 	height: 0;
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
 }
 
 pre {
 	overflow: auto;
+	font-family: $font__pre;
+	@include font-size(0.9375);
+	line-height: $font__line-height-pre;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
 }
 
 code,
@@ -120,6 +194,11 @@ pre,
 samp {
 	font-family: monospace, monospace;
 	font-size: 1em;
+}
+
+code, kbd, tt, var {
+	font-family: $font__code;
+	@include font-size(0.9375);
 }
 
 button,

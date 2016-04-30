@@ -10,7 +10,6 @@ Text Domain: boilerplate
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
-# Typography
 # Elements
 # Forms
 # Navigation
@@ -28,8 +27,15 @@ Text Domain: boilerplate
 # Media
 	## Captions
 	## Galleries
+# Templates
+	## 404
+	## Archive
+	## Page
+	## Single
+	## Comments
+	## Widgets
 --------------------------------------------------------------*/
-@import "variables-site/variables-site";
+@import "variables/variables";
 @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
@@ -38,14 +44,11 @@ Text Domain: boilerplate
 @import "normalize";
 
 /*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "typography/typography";
-
-/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-@import "elements/elements";
+@import "elements/lists";
+@import "elements/tables";
+@import "elements/headings";
 
 /*--------------------------------------------------------------
 # Forms
@@ -55,7 +58,8 @@ Text Domain: boilerplate
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-@import "navigation/navigation";
+@import "navigation/menus";
+@import "navigation/links";
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -73,14 +77,10 @@ Text Domain: boilerplate
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
+@import "site/layout";
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -91,3 +91,13 @@ Text Domain: boilerplate
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+# Templates
+--------------------------------------------------------------*/
+@import "templates/404";
+@import "templates/archive";
+@import "templates/page";
+@import "templates/single";
+@import "templates/comments";
+@import "templates/widgets";

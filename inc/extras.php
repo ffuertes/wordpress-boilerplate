@@ -45,7 +45,7 @@ function my_login_head() {
 	echo "
 	<style>
 	body.login #login h1 a {
-		background: url('". get_template_directory_uri() ."/assets/img/logo-login.png') no-repeat scroll center top transparent;
+		background: url('". get_template_directory_uri() ."/images/logo.svg') no-repeat scroll center top transparent;
 		width: 275px;
 		height: 133px;
 		background-size: cover;
