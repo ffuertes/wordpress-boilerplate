@@ -22,3 +22,9 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
