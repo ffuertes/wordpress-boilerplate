@@ -31,7 +31,7 @@ gulp.task('setup', function(){
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('styles', function(){
+gulp.task('build:styles', function(){
 	return gulp.src(config.paths.style)
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', notify.onError(function(error){
@@ -45,13 +45,13 @@ gulp.task('styles', function(){
 		.pipe(notify({ message: 'Styles tasks complete', onLast: true }));
 });
 
-gulp.task('serve', ['styles'], function() {
+gulp.task('serve', ['build:styles'], function() {
 
     browsersync.init({
         proxy: config.proxy
     });
 
-    gulp.watch(config.paths.scss, ['styles']);
+    gulp.watch(config.paths.scss, ['build:styles']);
     gulp.watch(config.paths.php).on('change', browsersync.reload);
 });
 
@@ -80,26 +80,26 @@ var buildInclude    = [
 ];
 
 //Delete the build folder in case it exist
-gulp.task('clean', function(){
+gulp.task('build:clean', function(){
 	return del([
 		'./build/' 
 	]);
 });
 
-gulp.task('buildZip', function() {
+gulp.task('build:zip', function() {
     return gulp.src('./build/**/')
         .pipe(zip(config.textDomain + '.zip'))
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('buildFiles', ['styles', 'clean'], function() {
+gulp.task('build:files', ['build:styles', 'build:clean'], function() {
     return  gulp.src(buildInclude)
         .pipe(gulp.dest('./build/' + config.textDomain))
         .pipe(notify({ message: 'Build task complete', onLast: true }));
 });
 
 gulp.task('build', function(){
-	runSequence('buildFiles', 'buildZip', 'clean');
+	runSequence('build:files', 'build:zip', 'build:clean');
     return notify({ message: 'Build Succeed', onLast: true });
 });
 
