@@ -16,9 +16,9 @@ var config = {
     textDomain: 'boilerplate',
     proxy: 'boilerplate.dev',
 	paths: {
-		style: './sass/*.scss',
-		scss: './sass/**/*.scss',
-		php: './**/*.php'
+		style: 'sass/*.scss',
+		scss: 'sass/**/*.scss',
+		php: '**/*.php'
 	},
 };
 
