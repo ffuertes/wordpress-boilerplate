@@ -41,7 +41,7 @@ gulp.task('build:styles', function(){
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], flexbox: true }))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('./'))
-		.pipe(browsersync.reload({stream: true}))
+		.pipe(browsersync.stream({match: '**/*.css'}))
 		.pipe(notify({ message: 'Styles tasks complete', onLast: true }));
 });
 
@@ -52,7 +52,7 @@ gulp.task('serve', ['build:styles'], function() {
     });
 
     gulp.watch(config.paths.scss, ['build:styles']);
-    gulp.watch(config.paths.php).on('change', browsersync.reload);
+    gulp.watch([config.paths.php, '!./node_modules/**']).on('change', browsersync.reload);
 });
 
 var buildInclude    = [
